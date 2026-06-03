@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Dio Alif</title>
+    <!-- Link Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABEL WARNA & DESAIN --- */
+        :root {
+            --primary: #0f172a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --text: #475569;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGASI SANGAT MODERN --- */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        nav .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--secondary);
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION DENGAN GAMBAR BACKDROP --- */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: var(--gradient);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* --- ABOUT SECTION WITH FLOAT IMAGE --- */
+        #about {
+            background: var(--white);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+        }
+
+        .about-img-wrapper img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--secondary);
+        }
+
+        .about-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- GALLERY SECTION --- */
+        #gallery {
+            background: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            height: 300px;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: 0.4s;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        /* --- TABLES SECTION --- */
+        #tables {
+            background: var(--white);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* --- LISTS SECTION --- */
+        #lists {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #lists::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .lists-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .list-group h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .list-group ul {
+            list-style: none;
+        }
+
+        .list-group ul li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .list-group ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        /* ======= LIST STYLE 1: Simple Icon List ======= */
+        .icon-list {
+            list-style: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-list li {
+            display: flex;
+            align-items: center;
+            padding: 15px 15px;
+            margin: 10px 0;
+            color: #e2e8f0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-list li:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateX(10px);
+        }
+
+        .icon-list li i {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .icon-list .text h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .icon-list .text p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* ======= COLORS ======= */
+        .icon-list li i.blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .icon-list li i.green { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .icon-list li i.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .icon-list li i.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .icon-list li i.red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+        /* --- CONTACT / FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 10% 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .footer-text {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-container, .lists-container {
+                grid-template-columns: 1fr;
+            }
+            .about-img-wrapper img {
+                box-shadow: 10px 10px 0 var(--secondary);
+            }
+        }
+
+        /* --- ANIMATION KEYFRAMES --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ==================== GALLERY GRID ==================== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI DENGAN LINK -->
+    <nav>
+        <div class="logo">Curriculum<span>Vitae</span></div>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> Tentang</a></li>
+            <li><a href="#galeri"><i class="fas fa-images"></i> Galeri</a></li>
+            <li><a href="#galeri"><i class="fas fa-table"></i> Data Riwayat Pengalaman Kerja</a></li>
+            <li><a href="#data"><i class="fas fa-table"></i> Data Riwayat Pendidikan</a></li>
+            <li><a href="#keahlian"><i class="fas fa-list"></i> Keahlian</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+     <section id="home">
+        <div class="hero-content">
+            <!-- 1. IMAGE: Foto Profil di dalam Header -->
+            <img src="https://drive.google.com/thumbnail?id=1zZmqst6S6-C34kZv5e43RpYQdOCxzuHK&sz200" 
+                 alt="Foto Profil Dio Alif" 
+                 style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid white; object-fit: cover; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            
+            <!-- 3. ELEMEN HEADING: Judul Utama -->
+            <h1>Perkenalkan, Saya <span> Dio Alif</span></h1>
+            <p>Mahasiswa Aktif Teknik Informatika - Universitas Siber Asia | Web Developer | Cyber Security Enthusiast</p>
+            
+            <!-- 4. LINK: Tombol Sosial Media (Minimal 3 Link) -->
+            <div style="margin-top: 2rem;">
+                <a href="https://github.com" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://mail.google.com/mail/u/0/" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+            
+            <!-- Link Internal ke section lain -->
+            <div style="margin-top: 1rem;">
+                <a href="#about" style="color: #cbd5e1; text-decoration: none; font-size: 0.9rem;">Lihat Selengkapnya ↓</a>
+                <a href="#home" style="position:fixed; bottom:20px; right:20px; background:#3b82f6; color:white; padding:10px 20px; border-radius:50%; text-decoration:none;">↑ Top</a>
+            </div>
+        </div>
+        </section>
+    </header>
+
+    <!-- TENTANG SAYA (ABOUT SECTION) -->
+    <section id="about">
+        <div class="section-title">
+            <!-- 3. ELEMEN HEADING: Judul Section -->
+            
+        </div>
+        
+        <div class="about-container">
+            <!-- 5. IMAGE: Gambar Ilustrasi (Gambar Kiri) -->
+            <div class="about-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dio Alif Working">
+            </div>
+            
+            <!-- Text Kanan -->
+            <div class="about-text">
+            <h2>Tentang Saya</h2>
+                <p> Perkenalkan, saya <b>Dio Alif Utomo</b>, seorang pengembang perangkat lunak yang memiliki minat besar dalam pengembangan aplikasi web yang responsif, cepat, dan berfokus pada pengalaman pengguna.
+                    Ketertarikan saya pada dunia teknologi dimulai sejak Sekolah Menengah Kejuruan  jurusan Teknik Komputer dan Jaringan, yang mendorong saya 
+                    untuk memahami cara kerja sistem dan internet secara mendalam.Saya menikmati tantangan dalam pemecahan masalah,memiliki kemampuaan manajemen waktu yang baik,serta senang berkolaborasi dan terus belajar hal-hal baru.
+                    Saya adalah orang yang disiplin dalam manajemen waktu dan selalu memastikan setiap target pekerjaan terselesaikan dengan hasil yang baik.
+                    Tujuan saya adalah menciptakan solusi digital yang inovatif dan dapat bermanfaat bagi banyak orang di era digital. </p>
+        <div class="line"></div>
+    </section>
+    <!-- KEAHLIAN (LIST) -->
+     <section id="keahlian">
+</style>
+</head>
+   
+    <!-- RIWAYAT PENDIDIKAN (DATA SECTION) -->
+    <section id="data">
+        <h2> PENDIDIKAN </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead><tr><th>Institusi</th><th>Tahun</th></tr></thead>
+                    <tbody>
+                        <tr><td>SDN 02 Pakisaji Malang</td><td> 2002 - 2008 </td></tr>
+                        <tr><td>SMPN 01 Bululawang</td><td> 2008 - 2011 </td></tr>
+                        <tr><td>SMKN 2 Turen - Teknik Komputer dan Jaringan </td><td> 2011 - 2014 </td></tr
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+    </section>
+    
+    <!-- PENGALAMAN (KEAHLIAN SECTION) -->
+    <section id="Skill">
+        <h2> PENGALAMAN KERJA </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead><tr><th>Perusahaan / Instansi</th><th>Tahun</th></tr></thead>
+                    <tbody>
+                        <tr><td>PT.Teletama Artha Mandiri Kediri - Stock Return Admin </td><td>2014 - 2016 </td></tr>
+                        <tr><td>PT.Kayan Lestari Malinau - Staff Finance </td><td> 2016 </td></tr>
+                        <tr><td>Kejaksaan Negeri Malinau - Staff Finance (Honorary Staff) </td><td> 2016-2021 </td></tr>
+                        <tr><td>Kejaksaan Republik Indonesia - Civil Servant </td><td> 2021 - now </td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+    </section>
+
+<!-- KEAHLIAN (LIST) -->
+     <section id="keahlian">
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Keahlian Teknis</h1>
+        <p class="subtitle">Technological Skills</p>
+
+        <ul class="icon-list">
+            <li>
+                <i class="fas fa-code blue"></i>
+                <div class="text">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS</p>
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-paint-brush purple"></i>
+                <div class="text">
+                    <h3>UI/UX Design</h3>
+                    <p>Adobe XD</p>
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-database green"></i>
+                <div class="text">
+                    <h3>Database Management</h3>
+                    <p>MySQL</p>
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-server orange"></i>
+                <div class="text">
+                    <h3>Backend Development</h3>
+                    <p>PHP, Python</p>
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-cloud red"></i>
+                <div class="text">
+                    <h3>Cloud Services</h3>
+                    <p>Firebase</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</section>
+
+
+    <!-- GALERI (GALERI PEKERJAAN SECTION) -->
+    <section id="galeri">
+        <h2> GALERI </h2>
+        <div class="gallery">
+            <h3>PEKERJAAN</h3>
+            <div class="col-md-4"><img src="https://drive.google.com/thumbnail?id=1xZFMiK1Ao2G1MR5H7LGZXo3VVwpEStTQ&sz200" class="img-fluid" alt="Proyek 1"></div>
+            <div class="col-md-4"><img src="https://drive.google.com/thumbnail?id=1LHrcJ0ZbQACAaIJ0BViffIrfDlOKE1l-&sz200" class="img-fluid" alt="Proyek 2"></div>
+            <div class="col-md-4"><img src="https://drive.google.com/thumbnail?id=1mZpFnFDRO3tZY6skiAVm8XOJ0-KFcu8Q&sz200" class="img-fluid" alt="Proyek 3"></div>
+            <div class="col-md-4"><img src="https://drive.google.com/thumbnail?id=10gmkuFUjq2YdSq0q0dVLC6LE1O4NqKpb&sz200" class="img-fluid" alt="Proyek 4"></div>
+        </div>
+    </section>
+    
